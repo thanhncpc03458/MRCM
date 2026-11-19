@@ -16,6 +16,6 @@ Trải nghiệm gồm mở hộp quà, tuyết rơi, lời chúc đánh máy, đ
 
 ## Xuất bản công khai
 
-Workflow GitHub Pages sẽ tự động triển khai website sau mỗi lần cập nhật nhánh `main`. Link công khai có dạng:
+Workflow GitHub Pages sẽ tự động triển khai website sau mỗi lần cập nhật nhánh `main`. Lần đầu, vào **Settings → Pages**, chọn **GitHub Actions** ở mục **Source**, rồi chạy lại workflow `Deploy Christmas Wonderland`. Link công khai có dạng:
 
 `https://thanhncpc03458.github.io/MRCM/`
