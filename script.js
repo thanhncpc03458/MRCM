@@ -129,23 +129,30 @@ function toggleMusic() {
     return;
   }
   audioContext.resume();
-  const notes = [261.63, 329.63, 392, 523.25, 392, 329.63];
+  const melody = [
+    [261.63, 329.63, 392], [329.63, 392, 523.25], [392, 493.88, 587.33],
+    [523.25, 659.25, 783.99], [587.33, 739.99, 880], [523.25, 659.25, 783.99],
+    [392, 493.88, 587.33], [329.63, 392, 493.88],
+  ];
   let step = 0;
   const chime = () => {
-    const oscillator = audioContext.createOscillator();
-    const gain = audioContext.createGain();
-    oscillator.type = 'sine';
-    oscillator.frequency.value = notes[step % notes.length];
-    gain.gain.setValueAtTime(0, audioContext.currentTime);
-    gain.gain.linearRampToValueAtTime(.035, audioContext.currentTime + .08);
-    gain.gain.exponentialRampToValueAtTime(.001, audioContext.currentTime + 1.4);
-    oscillator.connect(gain).connect(audioContext.destination);
-    oscillator.start();
-    oscillator.stop(audioContext.currentTime + 1.5);
+    const now = audioContext.currentTime;
+    melody[step % melody.length].forEach((frequency, index) => {
+      const oscillator = audioContext.createOscillator();
+      const gain = audioContext.createGain();
+      oscillator.type = index === 0 ? 'sine' : 'triangle';
+      oscillator.frequency.value = frequency;
+      gain.gain.setValueAtTime(0, now);
+      gain.gain.linearRampToValueAtTime(index === 0 ? .045 : .018, now + .08);
+      gain.gain.exponentialRampToValueAtTime(.001, now + 1.1);
+      oscillator.connect(gain).connect(audioContext.destination);
+      oscillator.start(now);
+      oscillator.stop(now + 1.2);
+    });
     step += 1;
   };
   chime();
-  musicTimer = window.setInterval(chime, 1700);
+  musicTimer = window.setInterval(chime, 1250);
   musicPlaying = true;
   musicToggle.classList.add('is-playing');
   musicToggle.setAttribute('aria-pressed', 'true');
