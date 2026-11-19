@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#160f1c" />
+    <meta name="description" content="Một thế giới Giáng Sinh nhỏ bé dành riêng cho người đặc biệt." />
+    <title>Món quà Giáng Sinh dành cho cậu</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="snow-layer" id="snow-layer" aria-hidden="true"></div>
+
+    <main>
+      <section class="intro-screen screen" id="intro-screen" aria-labelledby="intro-title">
+        <div class="intro-glow"></div>
+        <p class="eyebrow">XỨ SỞ GIÁNG SINH · 2026</p>
+        <h1 id="intro-title">Mình có một<br /><em>bất ngờ Giáng Sinh</em><br />dành cho cậu...</h1>
+        <div class="gift-stage">
+          <div class="gift-aura"></div>
+          <button class="gift" id="gift" aria-label="Mở món quà Giáng Sinh">
+            <span class="gift-lid"></span>
+            <span class="gift-box"></span>
+            <span class="gift-ribbon gift-ribbon--vertical"></span>
+            <span class="gift-ribbon gift-ribbon--horizontal"></span>
+            <span class="gift-bow gift-bow--left"></span>
+            <span class="gift-bow gift-bow--right"></span>
+          </button>
+        </div>
+        <label class="name-field" for="recipient-name">Tên của cậu</label>
+        <input class="name-input" id="recipient-name" maxlength="40" autocomplete="name" placeholder="Nhập tên của cậu..." required />
+        <button class="button button--gold" id="open-gift">Mở món quà <span>↗</span></button>
+        <p class="hint">Một thế giới nhỏ bé được tạo riêng cho cậu</p>
+      </section>
+
+      <section class="wonderland screen" id="wonderland" aria-labelledby="wish-title">
+        <header class="topbar">
+          <a class="brand" href="#wonderland" aria-label="Trang chủ Xứ sở Giáng Sinh">
+            <span class="brand-mark">✦</span>
+            <span>Xứ sở<br /><b>Giáng Sinh</b></span>
+          </a>
+          <button class="music-toggle" id="music-toggle" aria-pressed="false">
+            <span class="music-icon">♫</span><span class="music-label">Bật nhạc đêm</span>
+          </button>
+        </header>
+
+        <div class="sky-content">
+          <p class="eyebrow eyebrow--light">DÀNH CHO MỘT NGƯỜI ĐẶC BIỆT</p>
+          <h2 id="wish-title">Một chút phép màu,<br /><em>dành riêng cho <span id="recipient-display">cậu</span>.</em></h2>
+          <p class="lead">Giữa những bông tuyết rơi và ánh đèn vàng ấm áp,<br class="desktop-only" /> có một lời chúc Giáng Sinh mang tên cậu.</p>
+          <div class="sparkle-line" aria-hidden="true"><span>✦</span><i></i><span>✦</span></div>
+        </div>
+
+        <div class="scene" aria-label="Một ngôi làng Giáng Sinh phủ tuyết">
+          <div class="moon"></div>
+          <div class="stars" id="stars" aria-hidden="true"></div>
+          <div class="mountains"></div>
+          <div class="house house--left"><span class="roof"></span><span class="window window--left"></span><span class="window window--right"></span></div>
+          <div class="house house--right"><span class="roof"></span><span class="window window--left"></span><span class="window window--right"></span></div>
+          <div class="ground"></div>
+          <button class="tree tree--main" id="tree" aria-label="Bật tắt đèn cây thông">
+            <span class="tree-star">★</span><span class="tree-layer tree-layer--one"></span><span class="tree-layer tree-layer--two"></span><span class="tree-layer tree-layer--three"></span><span class="tree-trunk"></span>
+            <span class="tree-lights"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </button>
+          <div class="tree tree--small" aria-hidden="true"><span class="tree-layer tree-layer--one"></span><span class="tree-layer tree-layer--two"></span><span class="tree-trunk"></span></div>
+          <p class="scene-note">chạm vào cây thông để bật tắt đèn</p>
+        </div>
+
+        <section class="letter-section" aria-labelledby="letter-title">
+          <div class="letter-intro">
+            <span class="section-number">01 / LỜI NHẮN DÀNH CHO BẠN</span>
+            <h2 id="letter-title">Gửi người<br /><em>khiến cuộc sống bừng sáng.</em></h2>
+          </div>
+          <div class="letter-copy" id="letter-copy" aria-live="polite">
+            <p class="typing-line" data-text=""></p>
+            <p class="typing-line" data-text="Giữa hàng triệu điều đẹp đẽ trên thế giới này, thật may mắn khi có một người khiến những ngày bình thường trở nên đặc biệt hơn."></p>
+            <p class="typing-line" data-text="Chúc cậu một mùa Giáng sinh thật ấm áp, bình yên và ngập tràn niềm vui."></p>
+            <p class="typing-line" data-text="Mong rằng những điều tốt đẹp nhất sẽ luôn tìm đến cậu. Mong nụ cười luôn ở trên môi và trái tim cậu luôn được lấp đầy bởi những điều hạnh phúc."></p>
+            <p class="typing-line" data-text="Và nếu Giáng sinh là mùa của những điều ước, thì mong rằng mọi điều ước của cậu đều sẽ trở thành hiện thực."></p>
+            <p class="closing-line">Với tất cả sự ấm áp, yêu thương,<br />và những điều ước nhỏ bé<br />mình dành riêng cho cậu. <span>♥</span></p>
+          </div>
+        </section>
+
+        <section class="interactive-section" aria-label="Những tương tác Giáng Sinh">
+          <div class="section-heading"><span class="section-number">02 / NHỮNG KHOẢNH KHẮC NHỎ</span><h2>Hãy ước một điều.<br /><em>Giữ nó thật gần.</em></h2></div>
+          <div class="interaction-grid">
+            <button class="wish-card" id="wish-button"><span class="card-icon">✦</span><b>Ước một điều</b><small>Gửi điều ước lên bầu trời đêm</small></button>
+            <button class="envelope-card" id="envelope-button"><span class="envelope" aria-hidden="true"><i></i></span><b>Một lời nhắn bí mật</b><small>Bên trong có điều muốn nói với cậu</small></button>
+          </div>
+          <div class="secret-note" id="secret-note" role="dialog" aria-modal="false" aria-hidden="true">
+            <button class="close-note" id="close-note" aria-label="Đóng lời nhắn bí mật">×</button>
+            <span class="note-stamp">DÀNH CHO BẠN</span>
+            <p>“Cậu là một trong những điều dịu dàng nhất mà năm nay đã mang đến. Cảm ơn cậu vì đã luôn là chính mình.”</p>
+            <small>— với một chút yêu thương mùa Giáng Sinh</small>
+          </div>
+        </section>
+
+        <section class="ending screen" id="ending" aria-labelledby="ending-title">
+          <div class="ending-tree" aria-hidden="true"><span>✦</span><i></i><b></b><em></em></div>
+          <p class="eyebrow eyebrow--light">HẸN GẶP LẠI Ở MỘT PHÉP MÀU KHÁC</p>
+          <h2 id="ending-title">Giáng Sinh đẹp hơn<br />khi có một người <em>đặc biệt</em><br />để nghĩ về.</h2>
+          <p>Cảm ơn <span class="name-placeholder"></span> đã là một phần thật đẹp của năm nay.</p>
+          <strong>Giáng Sinh an lành, người đặc biệt của mình! <span>♥</span></strong>
+          <button class="button button--outline" id="restart">Mở lại món quà <span>↗</span></button>
+        </section>
+      </section>
+    </main>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
