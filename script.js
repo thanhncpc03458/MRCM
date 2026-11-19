@@ -9,6 +9,7 @@ const tree = document.querySelector('#tree');
 const wishButton = document.querySelector('#wish-button');
 const envelopeButton = document.querySelector('#envelope-button');
 const secretNote = document.querySelector('#secret-note');
+const secretMessage = secretNote.querySelector('p');
 const closeNote = document.querySelector('#close-note');
 const toast = document.querySelector('#toast');
 const musicToggle = document.querySelector('#music-toggle');
@@ -20,6 +21,15 @@ let musicTimer;
 let musicPlaying = false;
 let typingStarted = false;
 let recipientName = 'người đặc biệt';
+let lastSecretMessageIndex = -1;
+
+const secretMessages = [
+  '“Cậu là một trong những điều dịu dàng nhất mà năm nay đã mang đến. Cảm ơn cậu vì đã luôn là chính mình.”',
+  '“Mong những điều tốt đẹp nhất sẽ nhẹ nhàng tìm đến bên cậu, hôm nay và cả những ngày sau.”',
+  '“Chúc cậu luôn giữ được nụ cười thật ấm áp, kể cả trong những ngày mùa đông lạnh giá.”',
+  '“Có những người khiến thế giới trở nên đẹp hơn chỉ bằng sự hiện diện của mình. Cậu là một người như thế.”',
+  '“Mong mùa Giáng Sinh này mang đến cho cậu thật nhiều bình yên, niềm vui và những bất ngờ ngọt ngào.”',
+];
 
 function updateRecipientName() {
   const enteredName = recipientNameInput.value.trim().replace(/\s+/g, ' ');
@@ -178,7 +188,16 @@ gift.addEventListener('click', revealWonderland);
 recipientNameInput.addEventListener('input', () => recipientNameInput.classList.remove('name-input--error'));
 tree.addEventListener('click', () => { tree.classList.toggle('lights-off'); showToast(tree.classList.contains('lights-off') ? 'Đèn đang nghỉ một chút' : 'Cây thông đang tỏa sáng dành cho cậu ✦'); });
 wishButton.addEventListener('click', makeWish);
-envelopeButton.addEventListener('click', () => { secretNote.classList.add('is-open'); secretNote.setAttribute('aria-hidden', 'false'); });
+envelopeButton.addEventListener('click', () => {
+  let messageIndex = Math.floor(Math.random() * secretMessages.length);
+  while (messageIndex === lastSecretMessageIndex && secretMessages.length > 1) {
+    messageIndex = Math.floor(Math.random() * secretMessages.length);
+  }
+  lastSecretMessageIndex = messageIndex;
+  secretMessage.textContent = secretMessages[messageIndex];
+  secretNote.classList.add('is-open');
+  secretNote.setAttribute('aria-hidden', 'false');
+});
 closeNote.addEventListener('click', () => { secretNote.classList.remove('is-open'); secretNote.setAttribute('aria-hidden', 'true'); });
 musicToggle.addEventListener('click', toggleMusic);
 restart.addEventListener('click', restartExperience);
